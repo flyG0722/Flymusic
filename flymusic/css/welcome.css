@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+/*引入字体*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    -webkit-transition: all 700ms ease-in;
+    /*使用了webkit前缀的CSS属性transition*/
+    /*设置了面板上所有属性的变化在700毫秒内以缓慢的方式进行过渡*/
+    /*这使得面板的状态变化更加平滑。*/
+}
+
+
+.panel h4 {
+    font-size: 28px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+.panel .enter{
+    font-size: 50px;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.panel.active {
+    flex: 5;
+    cursor:default;
+}
+
+.panel.active h4,.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+    /*这段 CSS 规则的作用是在面板被激活时（例如，通过点击）*/
+    /*使得面板内的标题元素逐渐变得可见，并在 0.4 秒后开始逐渐显示标题*/
+    /*过渡时间为 0.3 秒，速度曲线为渐入效果。*/
+}
+
+@media (max-width: 480px) {  /* 媒体查询 做适配 */
+    .container {
+        width: 100vw;
+    }
+}
