@@ -1,10 +1,13 @@
-Initialize this repository with:
+接口地址:https://api.linhun.vip/doc/wyyyy.html#
 
-Add a README file
-This is where you can write a long description for your project. Learn more about READMEs.
-Add .gitignore
-Choose which files not to track from a list of templates. Learn more about ignoring files.
-Choose a license
-A license tells others what they can and can't do with your code. Learn more about licenses.
-This will set main as the default branch. Change the default name in your settings.
-You are creating a public repository in your personal account.
+请善待免费接口，尊重api作者。
+
+相关技术：html5+css3+JavaScript+axios
+
+text.html为测试接口的文件
+
+welcome对应欢迎页面
+
+main对应主页面
+
+该程序并未处理请求的异步问题，所以页面上的展示取决于请求速度和资源大小。
