@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    background-color: #333;
+    color: #222;
+    margin: 0;
+}
+
+
+.container {
+    background: url('https://media.istockphoto.com/id/1472818295/zh/%E7%85%A7%E7%89%87/striped-white-background-grunge-brush-stroke-light-gray-cracked-texture-dye-sparse-grayscale.jpg?s=612x612&w=0&k=20&c=E-wAmgyrcqbU88ELtsy-jJ5B15_mGupimtrCq671Mi4=') no-repeat center;
+    background-size: cover;
+    transform-origin: top left; /*设置原点为左上角，便于后面操作*/
+    transition: transform 0.5s linear; /*设置过渡*/
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.container.night{
+    background: url('https://media.istockphoto.com/id/1449833741/zh/%E7%85%A7%E7%89%87/abstract-blurry-background.jpg?s=612x612&w=0&k=20&c=g6jx9PMEq-9ZJgl9cOM8AxBeD6V1wYYkJPZeHMc-GlA=') no-repeat center;
+    background-size: cover;
+}
+/*region 导航栏区*/
+.container.show-nav {
+    transform: rotate(-20deg); /*逆时针方向旋转20度*/
+}
+
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px; /*只显示圆形的第四象限*/
+}
+
+.circle {
+    background-color: #cccccc;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+.circle.night{
+    background-color: #53052b;
+}
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+    position: fixed;
+}
+
+.circle button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+.container.show-nav + nav li { /*这部分不参与旋转*/
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+nav {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    z-index: 100; /*设置堆叠优先级*/
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(-180%);
+    transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+
+nav a{
+    color: #fafafa;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+nav a:hover {
+    color: skyblue;
+    font-weight: bold;
+}
+
+/*endregion*/
+
+.header{
+    border-bottom: gray 1px solid;
+    height: 200px;
+}
+
+.header img{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 105px;
+}
+.search{
+
+    display: flex;
+    position: absolute;
+    top: 75px;
+    right: 120px;
+    align-items: center;
+    font-size: 0;
+}
+
+.search input{
+    width: 250px;
+    height: 60px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-size: 20px;
+    border: gray solid 2px;
+    border-right: none;
+}
+.search.night input{
+    background-color: mediumpurple;
+}
+.search.night input::placeholder{
+    color: #cccccc;
+}
+.search input:focus {
+    border-color: skyblue;
+    box-shadow: 0 0 15px blanchedalmond;
+}
+
+.search.night input:focus {
+    border-color: purple;
+    box-shadow: 0 0 15px #53052b;
+}
+
+.search button{
+    height: 60px;
+    width: 70px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: gray solid 2px;
+    margin: 0;
+    padding:0;
+    border-left: none;
+}
+.search.night button{
+    border: #53052b solid 2px;
+    background-color: #53052b;
+    color: #cccccc;
+}
+.search button:hover{
+    cursor: pointer;
+    border-color: skyblue;
+    box-shadow: 0 0 15px blanchedalmond;
+}
+
+/*region 推荐 */
+.recommend{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.recommend .music{
+    height: 550px;
+    width: 480px;
+    margin: 60px;
+    border: blanchedalmond solid 3px;
+    border-radius: 20px; /* 添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影 */
+}
+
+.recommend .music img{
+    height: 480px;
+    width: 476px;
+    padding: 0;
+    margin: 0;
+    border-radius: 20px; /* 添加圆角 */
+}
+
+.recommend .music img:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); /* 添加阴影 */
+}
+.recommend .music p:nth-child(2){
+    padding: 0;
+    font-size: 25px;
+    color: skyblue;
+    margin: 0;
+    text-align: center;
+}
+
+.recommend .music p:nth-child(3){
+    padding: 0;
+    font-size: 20px;
+    color: cornflowerblue;
+    margin: 0;
+    text-align: center;
+}
+
+/*endregion */
+
+
+
+.content h1{
+    margin: 0;
+    color: skyblue;
+    padding-left: 30px;
+}
+
+.player{
+    display: flex;
+    position: fixed;
+    height: 100px;
+    width: 100vw;
+    background-color: #875f65;
+    bottom: 0;
+    align-items: center;
+}
+.player audio{
+    flex: 1;
+
+}
+
+.player .lyrics{
+    height: 20px;
+    flex: 1;
+    text-align: center;
+    font-size: 30px;
+    line-height: 20px;
+}
+
+.player img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 80px;
+}
+
+.More{
+    text-align: center;
+    background-color: #7a7787;
+    height: 100px;
+    margin-bottom: 80px;
+    line-height: 100px;
+}
+.More:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); /* 添加阴影 */
+}
+
+.top{
+    width: 80px;
+    height: 90px;
+    background-color: #cccccc;
+    color: aliceblue;
+    position: fixed;
+    right: 20px;
+    bottom: 200px;
+    border-radius: 20px;
+    font-size: 80px;
+    text-align: center;
+    display: none;
+}
+
+.top.night{
+    background-color: #53052b;
+    color: #222222;
+}
+.top:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6); /* 添加阴影 */
+}
+
+#night{
+    position: absolute;
+    margin-left: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+#night:checked{
+    box-shadow: 0 0 2px 2px mediumpurple; /* 添加阴影 */
+}
+/*定义动画*/
+@keyframes img_rotate {
+    from {
+        transform: rotate(0deg); /* 从0度开始旋转 */
+    }
+    to {
+        transform: rotate(360deg); /* 旋转到360度，即一圈 */
+    }
+}
